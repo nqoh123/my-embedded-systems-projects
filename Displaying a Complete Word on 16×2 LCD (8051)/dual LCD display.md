@@ -5,7 +5,10 @@
 This project demonstrates how to interface **two 16x2 LCD modules** with the **8051 microcontroller**.
 Each LCD is connected to separate ports, allowing the display of **different messages simultaneously**.
 
-It’s an extension of the single LCD project — useful in embedded systems where **parallel visual feedback** is required (e.g., monitoring multiple parameters, displaying logs and alerts separately).
+In this version, the displays show:
+
+* **LCD1** → `"Nqobile Predict"` and `"embedded system"`
+* **LCD2** → `"Electronics"` and `"Semiconductor Industry"`
 
 ---
 
@@ -40,48 +43,59 @@ It’s an extension of the single LCD project — useful in embedded systems whe
 
 ## 🖥️ Working Principle
 
-1. **LCD Initialization** – Both LCDs are configured in 8-bit mode, cursor ON.
-2. **Command Functions** – Separate functions `send_cmd1()` and `send_cmd2()` send instructions to each LCD.
-3. **Data Functions** – `send_data1()` and `send_data2()` display characters on each LCD.
-4. **Display Cycle** –
+1. **Initialization** – Both LCDs are set to 8-bit mode, cursor ON.
+2. **Command Functions** – `send_cmd1()` and `send_cmd2()` send commands to LCD1 and LCD2.
+3. **Data Functions** – `send_data1()` and `send_data2()` send characters to LCD1 and LCD2.
+4. **Main Loop** –
 
-   * LCD1 shows:
+   * LCD1 prints:
 
      ```
-     kalai selvi
+     Nqobile Predict
      embedded system
      ```
-   * LCD2 shows:
+   * LCD2 prints:
 
      ```
-     kavitha
-     java IT
+     Electronics
+     Semiconductor Industry
      ```
-   * Each display is visible for a short time before the screen clears and repeats.
+   * After a short delay, both screens are cleared and the cycle repeats.
 
 ---
 
 ## 📂 Applications
 
 * Dual-screen embedded devices
-* Simultaneous display of sensor values (e.g., temperature on LCD1, humidity on LCD2)
-* User interface + debug log separation
+* Simultaneous display of **different system parameters** (e.g., LCD1 for user info, LCD2 for logs)
+* Educational projects to demonstrate multiple display control
 * Industrial monitoring systems
 
 ---
 
 ## 🚀 Future Improvements
 
-* Add **Timer-based delays** instead of software delay loops
-* Allow **dynamic inputs** (e.g., from UART/serial communication) to update LCDs in real-time
-* Use **custom characters** to enhance display
+* Add **scrolling text support** for longer messages (e.g., `"Semiconductor Industry"`)
+* Replace software delays with **Timer-based delays** for more stable performance
+* Interface with sensors or serial communication to show **real-time data**
 
 ---
 
 ## 📸 Demo Output
 
-LCD1 → `kalai selvi / embedded system`
-LCD2 → `kavitha / java IT`
+**LCD1** →
+
+```
+Nqobile Predict
+embedded system
+```
+
+**LCD2** →
+
+```
+Electronics
+Semiconductor Industry
+```
 
 ---
 
